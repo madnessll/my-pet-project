@@ -154,11 +154,6 @@
           </div>
         </div>
         <div class="sb-widget">
-          <a href="#" class="add">
-            <img src="img/add-2.jpg" alt="">
-          </a>
-        </div>
-        <div class="sb-widget">
           <h2 class="sb-title">Latest Comments</h2>
           <div class="latest-comments-widget">
             <div class="lc-item">

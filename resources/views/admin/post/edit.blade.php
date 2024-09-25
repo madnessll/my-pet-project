@@ -3,32 +3,28 @@
 @section('content')
 
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Создание поста</h1>
+          <h1 class="m-0">Редактирование поста</h1>
         </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
   </div>
-  <!-- /.content-header -->
 
-  <!-- Main content -->
+
   <section class="content">
     <div class="container-fluid">
-      <!-- Info boxes -->
       <div class="row d-flex flex-column">
 
-        <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.post.update', $post->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
-
-
+          @method('patch')
           <div class="form-group col-2">
-            <label for="exampleInputEmail1">Название поста</label>
-            <input type="text" name="title" class="form-control border-0" id="exampleInputEmail1"
-              placeholder="Введи название" value="{{ old('title') }}">
+            <label for="exampleInputpost">Название поста</label>
+            <input type="text" name="title" class="form-control border-0" id="exampleInputpost"
+              placeholder="Введи название" value="{{ $post->title }}">
             @error('title')
             <div class="text-danger">{{ $message }}</div>
             @enderror
@@ -37,19 +33,20 @@
           <div class="form-group col-3">
             <label>Описание поста</label>
             <textarea name="content" class="form-control border-0" rows="3"
-              placeholder="Введите описание">{{ old('content') }}</textarea>
+              placeholder="Введите описание">{{ $post->content }}</textarea>
             @error('content')
             <div class="text-danger">{{ $message }}</div>
             @enderror
           </div>
 
-
           <div class="form-group col-3">
-            <label>Картинка</label>
+            <div>Картинка</div>
+            <img style=" height: 400px;" src="{{ url('storage/' . $post->image) }}"
+              class="mt-2 col-auto pl-0 mb-3"></img>
             <div class="input-group">
               <div class="custom-file">
                 <input name="image" role="button" type="file" class="custom-file-input">
-                <label class="custom-file-label">Выбери картинку</label>
+                <label class="custom-file-label">Выбери новую картинку</label>
               </div>
               <div class="input-group-append">
                 <span class="input-group-text">...</span>
@@ -61,13 +58,12 @@
             @enderror
           </div>
 
-
           <div class="form-group col-3">
             <label>Выберите категорию</label>
             <select name="category_id" class="form-control">
               @foreach($categories as $category)
-              <option value="{{ $category->id }}" {{ old('category_id')==$category->id ? ' selected' : '' }}>
-                {{ $category->title }}</option>
+              <option value="{{ $category->id }}" {{ $category->id == $post->category_id ? ' selected' : '' }}
+                >{{ $category->title }}</option>
               @endforeach
             </select>
             @error('category_id')
@@ -77,33 +73,16 @@
 
 
           <div class="form-group col-1 mt">
-            <input type="submit" class="btn btn-block btn-dark" value="Добавить">
+            <input type="submit" class="btn btn-block btn-dark" value="Изменить">
           </div>
 
-
         </form>
-
-
       </div>
-
     </div>
-    <!--/. container-fluid -->
   </section>
-  <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
 
-<!-- Main Footer -->
-</div>
-<style>
-  .custom-file-input:lang(en)~.custom-file-label::after {
-    content: "Тыкай";
-  }
 
-  .mt {
-    margin-top: 40px;
-  }
-</style>
 
 
 @endsection

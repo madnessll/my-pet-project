@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Post;
+namespace App\Http\Requests\Admin\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
   /**
    * Determine if the user is authorized to make this request.
@@ -21,10 +21,17 @@ class StoreRequest extends FormRequest
    */
   public function rules(): array
   {
-    return [
+    $rules = [
       "title" => "required|string",
-      "content" => "required|string",
-      "image" => "required|file",
+    ];
+
+    return $rules;
+  }
+
+  public function messages()
+  {
+    return [
+      "title.required" => "Чел ты обязан заполнить это поле",
     ];
   }
 }

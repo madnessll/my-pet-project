@@ -1,4 +1,6 @@
 @extends('admin.layouts.repeat')
+
+@section('title', 'Админка')
 @section('content')
 
 <!-- Content Wrapper. Contains page content -->

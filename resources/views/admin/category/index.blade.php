@@ -1,5 +1,5 @@
 @extends('admin.layouts.repeat')
-@section('title', 'Posts')
+@section('title', 'Категории')
 @section('content')
 
 <div class="content-wrapper">
@@ -9,11 +9,11 @@
     <div class="container-fluid">
       <!-- Info boxes -->
       <div class="row d-flex flex-column">
-        <a href="{{ route('admin.post.create') }}" class="ml-2 btn btn-block btn-dark col-1 mb-5 mt-5">Создать пост</a>
+        <a href="{{ route('admin.category.create') }}" class="ml-2 btn btn-block btn-dark col-1 mb-5 mt-5">Создать категорию</a>
         
         <div class="card ml-2 col-6">
           <div class="card-header">
-            <h3 class="card-title">Таблица постов</h3>
+            <h3 class="card-title">Таблица категорий</h3>
         
             <div class="card-tools">
               <div class="input-group input-group-sm" style="width: 150px;">
@@ -28,31 +28,36 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Титульник</th>
+                  <th>Нейминг</th>
                   <th class="text-center">Посмотреть</th>
                   <th class="text-center">Редактировать</th>
                   <th class="text-center">Удалить</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach($posts as $post)
+                @foreach($categories as $category)
                 <tr>
-                  <td>{{ $post->id }}</td>
-                  <td>{{ $post->title }}</td>
+                  <td>{{ $category->id }}</td>
+                  <td>{{ $category->title }}</td>
                   <td class="text-center">
-                    <a href="{{ route('admin.post.show', $post->id) }}">
+                    <a href="{{ route('admin.category.show', $category->id) }}">
                       <i class="far fa-eye"></i>
                     </a>
                   </td>
-                  <td class="text-center"><a href="{{ route('admin.post.edit', $post->id) }}"><i class="fas fa-pencil-alt text-success"></i></a></td>
                   <td class="text-center">
-                    <form action="{{ route('admin.post.delete', $post->id) }}" method="POST">
+                    <a href="{{ route('admin.category.edit', $category->id) }}">
+                      <i class="fas fa-pencil-alt text-success"></i>
+                    </a>
+                  </td>
+                  <td class="text-center">
+                    <form action="{{ route('admin.category.delete', $category->id) }}" method="POST">
                       @csrf
                       @method('delete')
                       <button type="submit" class="border-0 bg-transparent">
                         <i class="fas fa-trash text-danger"></i>
                       </button>
                     </form>
+                    {{-- <a href="#"><i class="fas fa-trash text-danger"></i></a> --}}
                   </td>
                 </tr>
                 @endforeach
