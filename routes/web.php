@@ -20,7 +20,7 @@ Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/page', [PageController::class, 'index'])->name('page.index');
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
   Route::get('/', [AdminController::class, 'index'])->name('admin');
 
 
