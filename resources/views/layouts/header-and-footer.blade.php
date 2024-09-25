@@ -35,15 +35,43 @@
   </div>
 
   <!-- Header section -->
-  <header class="header-section">
-    <a href="index.html" class="site-logo">
-      <img src="{{'img/logo.png'}}" alt="logo">
-    </a>
-    <ul class="main-menu">
-      <li><a href="{{ route('main.index') }}">Home</a></li>
-      <li><a href="{{ route('news.index') }}">News</a></li>
-      <li><a href="{{ route('page.index') }}">Page</a></li>
-    </ul>
+  <header class="header-section d-flex justify-content-between">
+    <div>
+      <a href="{{ route('main.index') }}" class="site-logo">
+        <img src="{{'img/logo.png'}}" alt="logo">
+      </a>
+      <ul class="main-menu">
+        <li><a href="{{ route('main.index') }}">Home</a></li>
+        <li><a href="{{ route('news.index') }}">News</a></li>
+        <li><a href="{{ route('page.index') }}">Page</a></li>
+      </ul>
+    </div>
+    <div>
+      {{-- <ul class="main-menu">
+        <li><a href="{{ route('register') }}">Регистрация</a></li>
+        <li><a href="{{ route('login') }}">Вход</a></li>
+      </ul> --}}
+      <ul class="main-menu">
+        {{-- Если пользователь авторизован --}}
+        @auth
+        <li class="white">{{ Auth::user()->name }}</li>
+        <li>
+          <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Выйти
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
+        </li>
+        @endauth
+      
+        {{-- Если пользователь гость (не авторизован) --}}
+        @guest
+        <li><a href="{{ route('register') }}">Регистрация</a></li>
+        <li><a href="{{ route('login') }}">Вход</a></li>
+        @endguest
+      </ul>
+    </div>
   </header>
   <!-- Header section end -->
 
@@ -165,4 +193,15 @@
 
 </body>
 
+
+
 </html>
+
+
+<style>
+  .white {
+    color: white;
+    font-weight: 500;
+    margin-right: 50px;
+  }
+</style>
