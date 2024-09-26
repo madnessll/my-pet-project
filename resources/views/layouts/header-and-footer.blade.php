@@ -42,17 +42,12 @@
       </a>
       <ul class="main-menu">
         <li><a href="{{ route('main.index') }}">Home</a></li>
-        <li><a href="{{ route('news.index') }}">News</a></li>
         <li><a href="{{ route('page.index') }}">Page</a></li>
       </ul>
     </div>
     <div>
-      {{-- <ul class="main-menu">
-        <li><a href="{{ route('register') }}">Регистрация</a></li>
-        <li><a href="{{ route('login') }}">Вход</a></li>
-      </ul> --}}
+
       <ul class="main-menu">
-        {{-- Если пользователь авторизован --}}
         @auth
         <li class="white">{{ Auth::user()->name }}</li>
         <li>
@@ -65,7 +60,6 @@
         </li>
         @endauth
       
-        {{-- Если пользователь гость (не авторизован) --}}
         @guest
         <li><a href="{{ route('register') }}">Регистрация</a></li>
         <li><a href="{{ route('login') }}">Вход</a></li>
