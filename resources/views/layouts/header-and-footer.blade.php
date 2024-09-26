@@ -126,46 +126,9 @@
             </ul>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="footer-widget fw-latest-post">
-            <h2 class="fw-title">Usfull Links</h2>
-            <div class="latest-news-widget">
-              <div class="ln-item">
-                <div class="ln-text">
-                  <div class="ln-date">April 1, 2019</div>
-                  <h6>10 Amazing new games</h6>
-                  <div class="ln-metas">
-                    <div class="ln-meta">By Admin</div>
-                    <div class="ln-meta">in <a href="#">Games</a></div>
-                    <div class="ln-meta">3 Comments</div>
-                  </div>
-                </div>
-              </div>
-              <div class="ln-item">
-                <div class="ln-text">
-                  <div class="ln-date">April 1, 2019</div>
-                  <h6>10 Amazing new games</h6>
-                  <div class="ln-metas">
-                    <div class="ln-meta">By Admin</div>
-                    <div class="ln-meta">in <a href="#">Games</a></div>
-                    <div class="ln-meta">3 Comments</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
-      <div class="copyright"><a href="">
-          <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>
-              document.write(new Date().getFullYear());
-            </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by
-            <a href="https://colorlib.com" target="_blank">Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          </p>
-      </div>
+
     </div>
     <div class="social-links-warp">
       <div class="container">
