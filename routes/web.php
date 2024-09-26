@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\MainController;
+
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CategoryController;
 
 
 Route::get('/', [MainController::class, 'index'])->name('main.index');
@@ -40,6 +41,11 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
   Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
   Route::patch('/categories/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
   Route::delete('/categories/{category}', [CategoryController::class, 'delete'])->name('admin.category.delete');
+
+
+  Route::get('/users', [UserController::class, 'index'])->name('admin.user.index');
+  Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('admin.user.edit');
+  Route::patch('/users/{user}', [UserController::class, 'update'])->name('admin.user.update');
 });
 
 

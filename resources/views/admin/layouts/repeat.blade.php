@@ -69,6 +69,12 @@
                 <p>Categories</p>
               </a>
             </li>
+            <li class="nav-item ">
+              <a href="{{ route('admin.user.index') }}" class="nav-link d-flex align-items-center">
+                <i class="nav-icon fas fa-users mr-3"></i>
+                <p>Users</p>
+              </a>
+            </li>
 
           </ul>
         </nav>

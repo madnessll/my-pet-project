@@ -92,6 +92,7 @@
           </div>
           <div class="sb-widget">
             <h2 class="sb-title">Categories</h2>
+            {{-- @foreach($categories as $category) --}}
             <ul class="sb-cata-list">
               <li><a href="">Games<span>20</span></a></li>
               <li><a href="">Gaming Tips & Tricks<span>23</span></a></li>
@@ -100,6 +101,7 @@
               <li><a href="">Community<span>15</span></a></li>
               <li><a href="">Uncategorized<span>22</span></a></li>
             </ul>
+            {{-- @endforeach --}}
           </div>
           <div class="sb-widget">
             <h2 class="sb-title">Latest News</h2>
