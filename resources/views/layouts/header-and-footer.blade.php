@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" />
 
   <!-- Main Stylesheets -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 
 
 
@@ -38,7 +38,7 @@
   <header class="header-section d-flex justify-content-between">
     <div>
       <a href="{{ route('main.index') }}" class="site-logo">
-        <img src="{{'img/logo.png'}}" alt="logo">
+        <img src="{{asset('img/logo.png')}}" alt="logo">
       </a>
       <ul class="main-menu">
         <li><a href="{{ route('main.index') }}">Home</a></li>
@@ -78,7 +78,7 @@
         <div class="col-lg-3">
           <div class="footer-widget">
             <div class="about-widget">
-              <img src="{{'img/logo.png'}}" alt="">
+              <img src="{{asset('img/logo.png')}}" alt="">
               <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
                 ipsum suspendisse ultrices gravida. Risus commodo. Morbi id dictum quam, ut commodo.</p>
             </div>

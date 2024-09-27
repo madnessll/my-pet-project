@@ -16,7 +16,7 @@
             <div class="post-meta">3 Comments</div>
           </div>
           <p>{{ Str::limit($randomPost->content, 250) }}</p>
-          <a href="#" class="site-btn">Read More</a>
+          <a href="{{ route('page.show', $randomPost->id) }}" class="site-btn">Read More</a>
         </div>
         <div class="row">
           @foreach($randomPosts as $post)
@@ -31,7 +31,7 @@
                 <div class="post-meta">3 Comments</div> 
               </div>
               <p>{{ Str::limit($post->content, 150) }}</p> 
-              <a href="#" class="read-more">Read More</a> 
+              <a href="{{ route('page.show', $post->id) }}" class="read-more">Read More</a> 
             </div>
           </div>
           @endforeach
