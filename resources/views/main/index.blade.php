@@ -1,4 +1,5 @@
 @extends('layouts.header-and-footer')
+@section('title', 'Салют' )
 @section('content')
 
 <!-- Blog section -->

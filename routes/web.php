@@ -16,7 +16,6 @@ Route::get('/', [MainController::class, 'index'])->name('main.index');
 
 
 
-Route::get('/page', [PageController::class, 'index'])->name('page.index');
 Route::get('/page/{id}', [PageController::class, 'show'])->name('page.show');
 
 

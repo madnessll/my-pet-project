@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-  <title>TheQuest - Gaming Magazine Template</title>
+  <title>@yield('title')</title>
   <meta charset="UTF-8">
   <meta name="description" content="TheQuest Gaming Magazine Template">
   <meta name="keywords" content="gaming, html">
@@ -42,7 +42,6 @@
       </a>
       <ul class="main-menu">
         <li><a href="{{ route('main.index') }}">Home</a></li>
-        <li><a href="{{ route('page.index') }}">Page</a></li>
       </ul>
     </div>
     <div>
