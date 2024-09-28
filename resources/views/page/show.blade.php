@@ -33,11 +33,11 @@
                 <span class="comments__created">{{ $comment->created_at->diffForHumans() }}</span>
                 <p class="comments__content">{{ $comment->content }}</p>
 
-                @if (Auth::check() && (Auth::id() === $comment->user_id || Auth::user()->is_admin))
+                @if (Auth::check() && (Auth::id() === $comment->user_id || Auth::user()->role == 1))
                 <form class="comments__delete" action="{{ route('comments.delete', $comment->id) }}" method="POST">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-block btn-dark">Delete</button>
+                  <button type="submit" class="btn btn-block btn-dark">Удалить</button>
                 </form>
                 @endif
               </div>
