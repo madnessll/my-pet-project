@@ -33,7 +33,7 @@
                 <span class="comments__created">{{ $comment->created_at->diffForHumans() }}</span>
                 <p class="comments__content">{{ $comment->content }}</p>
 
-                @if (Auth::id() === $comment->user_id || Auth::user()->is_admin)
+                @if (Auth::check() && (Auth::id() === $comment->user_id || Auth::user()->is_admin))
                 <form class="comments__delete" action="{{ route('comments.delete', $comment->id) }}" method="POST">
                   @csrf
                   @method('DELETE')
@@ -46,6 +46,7 @@
                 <li class="white">Комментов еще нет брат</li> 
               @endif
             </ul>
+            @if (Auth::check())
             <h5>Leave a comment</h5>
             <form class="comment-form" action="{{ route('comments.store', $post->id) }}" method="POST">
               @csrf
@@ -56,6 +57,12 @@
                 </div>
               </div>
             </form>
+            @else
+            <p>Для того чтобы оставить комментарий, 
+              <a class="green-main" href="{{ route('login') }}">войдите</a> или 
+              <a class="green-main" href="{{ route('register') }}">зарегистрируйтесь</a>.
+              </p>
+            @endif
           </div>
         </div>
       </div>
