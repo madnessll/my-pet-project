@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
@@ -44,6 +45,11 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
   Route::get('/users', [UserController::class, 'index'])->name('admin.user.index');
   Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('admin.user.edit');
   Route::patch('/users/{user}', [UserController::class, 'update'])->name('admin.user.update');
+});
+
+Route::group(['middleware' => ['auth']], function () {
+  Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
+  Route::post('/account', [AccountController::class, 'update'])->name('account.update');
 });
 
 

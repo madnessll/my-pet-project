@@ -23,6 +23,7 @@
 
   <!-- Main Stylesheets -->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/my.css') }}" />
 
 
 
@@ -49,6 +50,7 @@
       <ul class="main-menu">
         @auth
         <li class="white">{{ Auth::user()->name }}</li>
+        <li><a href="{{ route('account.edit') }}">Мой профиль</a></li>
         <li>
           <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Выйти
@@ -88,7 +90,7 @@
             <h2 class="fw-title">Usfull Links</h2>
             <ul>
               <li><a href="">Games</a></li>
-              <li><a href="">testimonials</a></li>
+              <li><a href="">Testimonials</a></li>
               <li><a href="">Reviews</a></li>
               <li><a href="">Characters</a></li>
               <li><a href="">Latest news</a></li>
@@ -143,10 +145,15 @@
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
   <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
   <script src="{{ asset('js/circle-progress.min.js') }}"></script>
   <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
   <script src="{{ asset('js/main.js') }}"></script>
-
+<script>
+      $(function () {
+      bsCustomFileInput.init();
+    });
+    </script>
 </body>
 
 

@@ -1,0 +1,17 @@
+.account__name {
+  color: white;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  display: block;
+}
+.account__img {
+  width: 300px;
+  margin-bottom: 30px;
+}
+.account__form {
+  margin-bottom: 30px;
+}
+.account__group {
+  width: 100%;
+}
