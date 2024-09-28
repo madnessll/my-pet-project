@@ -15,3 +15,26 @@
 .account__group {
   width: 100%;
 }
+/* /////////////////////////////////////////////////////////////// */
+
+.comments__coment {
+  border: 4px solid gray;
+  padding: 20px;
+  position: relative;
+  margin-bottom: 10px;
+  border-radius: 35px;
+}
+.comments__name {
+  color: white;
+}
+.comments__created {
+  color: gray;
+}
+.comments__content {
+  color: white;
+}
+.comments__delete {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}

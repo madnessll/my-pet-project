@@ -14,7 +14,7 @@
           <div class="post-metas">
             <div class="post-meta">By Admin</div>
             <div class="post-meta">in <a href="#">{{ $randomPost->category->title }}</a></div>
-            <div class="post-meta">3 Comments</div>
+            <div class="post-meta">{{ $randomPost->comments->count() }} комментов</div>
           </div>
           <p>{{ Str::limit($randomPost->content, 250) }}</p>
           <a href="{{ route('page.show', $randomPost->id) }}" class="site-btn">Read More</a>
@@ -29,7 +29,7 @@
               <div class="post-metas">
                 <div class="post-meta">By Admin</div> 
                 <div class="post-meta">in <a href="#">{{ $post->category->title }}</a></div> 
-                <div class="post-meta">3 Comments</div> 
+                <div class="post-meta">{{ $post->comments->count() }} комментов</div> 
               </div>
               <p>{{ Str::limit($post->content, 150) }}</p> 
               <a href="{{ route('page.show', $post->id) }}" class="read-more">Read More</a> 
@@ -71,7 +71,7 @@
                 <div class="ln-metas">
                   <div class="ln-meta">By Admin</div>
                   <div class="ln-meta">in <a href="#">{{ $post->category->title }}</a></div>
-                  <div class="ln-meta">3 Comments</div>
+                  <div class="ln-meta">{{ $post->comments->count() }} комментов</div>
                 </div>
               </div>
             </div>

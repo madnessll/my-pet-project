@@ -6,6 +6,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
@@ -18,6 +19,11 @@ Route::get('/', [MainController::class, 'index'])->name('main.index');
 
 
 Route::get('/page/{id}', [PageController::class, 'show'])->name('page.show');
+
+Route::group(['middleware' => ['auth']], function () {
+  Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
+  Route::delete('/comments/{comment}', [CommentController::class, 'delete'])->name('comments.delete');
+});
 
 
 Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
