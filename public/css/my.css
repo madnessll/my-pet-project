@@ -94,3 +94,7 @@
 /* .main-comments__title {
   margin-bottom: 30px !important;
 } */
+ .navbar-nav .nav-item .nav-link {
+  display: flex;
+  align-items: center;
+ }
