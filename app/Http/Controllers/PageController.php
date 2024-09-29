@@ -12,10 +12,11 @@ class PageController extends Controller
   public function show($id)
   {
     // Поиск поста по ID
-    $post = Post::findOrFail($id); // Если пост не найден, выбрасывается исключение 404
+    $post = Post::findOrFail($id);
+    $comments = $post->comments()->paginate(5);
     $categories = Category::withCount('posts')->get();
     $latestPosts = Post::latest()->take(4)->get();
     // Передаем данные в представление
-    return view('page.show', compact('post', 'categories', 'latestPosts'));
+    return view('page.show', compact('post', 'categories', 'latestPosts', 'comments'));
   }
 }

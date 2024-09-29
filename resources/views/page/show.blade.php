@@ -22,13 +22,12 @@
           </div>
           <p>{{ $post->content}}</p>
           <div class="comments">
-            <h5>Оставлено {{ $post->comments->count() }} комментов</h5>
+            <h5>Оставлено {{ $comments->total() }} комментов</h5>
             <ul class="comments-list">
-              @if ($post->comments != null && $post->comments->isNotEmpty())
-              @foreach ($post->comments as $comment)
+              @if ($comments->isNotEmpty())
+              @foreach ($comments as $comment)
               <div class="comments__coment">
-                <img src="{{ asset('storage/' . $comment->user->avatar) }}" alt="User Avatar" class="rounded-circle"
-                  width="40">
+                <img src="{{ asset('storage/' . $comment->user->avatar) }}" alt="User Avatar" class="rounded-circle" width="40">
                 <span class="comments__name">{{ $comment->user->name }}</span>
                 <span class="comments__created">{{ $comment->created_at->diffForHumans() }}</span>
                 <p class="comments__content">{{ $comment->content }}</p>
@@ -46,6 +45,11 @@
                 <li class="white">Комментов еще нет брат</li> 
               @endif
             </ul>
+
+            <div class="pagination mb-4 justify-content-end">
+                {{ $comments->links() }}
+              </div>
+
             @if (Auth::check())
             <h5>Leave a comment</h5>
             <form class="comment-form" action="{{ route('comments.store', $post->id) }}" method="POST">
@@ -155,4 +159,7 @@
 
 
 
+
 @endsection
+
+

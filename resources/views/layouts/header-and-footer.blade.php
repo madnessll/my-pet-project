@@ -145,13 +145,18 @@
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
   <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
   <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
   <script src="{{ asset('js/circle-progress.min.js') }}"></script>
   <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
   <script src="{{ asset('js/main.js') }}"></script>
+  
 <script>
-      $(function () {
-      bsCustomFileInput.init();
+$(function () {
+    // Проверяем, определена ли функция bsCustomFileInput и если она доступна
+    if (typeof bsCustomFileInput !== 'undefined') {
+    bsCustomFileInput.init();
+    }
     });
     </script>
 </body>

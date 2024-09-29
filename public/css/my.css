@@ -44,3 +44,19 @@
   color: #10ddb4;
   transition: color 0.3s ease, transform 0.3s ease;
 }
+.page-item .page-link {
+  background-color: gray;
+  color: black
+}
+.page-item.active .page-link {
+  background-color: black;
+  border-color: black
+}
+
+
+.page-link.active, .page-item.active {
+  box-shadow: none;
+  background-color: transparent;
+  outline: none; /* Убираем обводку */
+}
+
