@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\CategoryController;
 
 Route::get('/', [MainController::class, 'index'])->name('main.index');
 
-
+Route::get('/categories',[App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
 
 
 Route::get('/page/{id}', [PageController::class, 'show'])->name('page.show');

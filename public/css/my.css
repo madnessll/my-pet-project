@@ -42,8 +42,37 @@
 /* общее */
 .green-main {
   color: #10ddb4;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.5s ease;
 }
+.green-main:hover {
+  color: white;
+}
+.trans {
+  transition: all .5s ease;
+}
+.green-main2 {
+  color: #10ddb4;
+}
+.mr-62 {
+  margin-right: 62px;
+}
+.mt-200 {
+  margin-top: 200px;
+}
+.mb-200 {
+  margin-bottom: 200px;
+}
+.mb-100 {
+  margin-bottom: 100px;
+}
+/* ////////////////////////////////////////////////////// */
+/* пагинация */
+.page-link.active, .page-item.active {
+  box-shadow: none;
+  background-color: transparent;
+  outline: none; /* Убираем обводку */
+}
+
 .page-item .page-link {
   background-color: gray;
   color: black
@@ -52,11 +81,8 @@
   background-color: black;
   border-color: black
 }
-
-
-.page-link.active, .page-item.active {
-  box-shadow: none;
-  background-color: transparent;
-  outline: none; /* Убираем обводку */
+/* //////////////////////////////////////////////////// */
+/* категории */
+.category__title {
+  font-size: 23px;
 }
-

@@ -55,7 +55,7 @@
           </ul>
           @if($categories->count() > 6)
           <div class="d-flex justify-content-center">
-            <a href="#" class="btn btn-dark mt-3">Показать все</a>
+            <a href="{{ route('category.index') }}" class="btn btn-dark mt-3">Показать все</a>
           </div>
           @endif
         </div>

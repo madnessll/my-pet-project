@@ -49,10 +49,14 @@
 
       <ul class="main-menu">
         @auth
-        <li class="white">{{ Auth::user()->name }}</li>
+        <li class="green-main2 mr-62">{{ Auth::user()->name }}</li>
+        @if (Auth::user()->role == 1)
+        <li><a href="{{ route('admin') }}">Админка</a></li>
+        @endif
         <li><a href="{{ route('account.edit') }}">Мой профиль</a></li>
         <li>
-          <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+          <a href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Выйти
           </a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -60,7 +64,7 @@
           </form>
         </li>
         @endauth
-      
+
         @guest
         <li><a href="{{ route('register') }}">Регистрация</a></li>
         <li><a href="{{ route('login') }}">Вход</a></li>
@@ -146,19 +150,20 @@
   <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
   <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
-  <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}">
+  </script>
   <script src="{{ asset('js/circle-progress.min.js') }}"></script>
   <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
   <script src="{{ asset('js/main.js') }}"></script>
-  
-<script>
-$(function () {
+
+  <script>
+    $(function () {
     // Проверяем, определена ли функция bsCustomFileInput и если она доступна
     if (typeof bsCustomFileInput !== 'undefined') {
     bsCustomFileInput.init();
     }
     });
-    </script>
+  </script>
 </body>
 
 

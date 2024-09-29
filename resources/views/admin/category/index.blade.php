@@ -11,7 +11,7 @@
       <div class="row d-flex flex-column">
         <a href="{{ route('admin.category.create') }}" class="ml-2 btn btn-block btn-dark col-1 mb-5 mt-5">Создать категорию</a>
         
-        <div class="card ml-2 col-6">
+        <div class="card ml-2 col-8">
           <div class="card-header">
             <h3 class="card-title">Таблица категорий</h3>
         

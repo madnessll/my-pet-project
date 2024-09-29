@@ -27,7 +27,9 @@
               @if ($comments->isNotEmpty())
               @foreach ($comments as $comment)
               <div class="comments__coment">
-                <img src="{{ asset('storage/' . $comment->user->avatar) }}" alt="User Avatar" class="rounded-circle" width="40">
+                
+                <img src="{{ asset('storage/' . (empty($comment->user->avatar) ? 'avatars/default-avatar.jpg' : $comment->user->avatar)) }}" alt="User Avatar" class="rounded-circle" width="40">
+
                 <span class="comments__name">{{ $comment->user->name }}</span>
                 <span class="comments__created">{{ $comment->created_at->diffForHumans() }}</span>
                 <p class="comments__content">{{ $comment->content }}</p>
