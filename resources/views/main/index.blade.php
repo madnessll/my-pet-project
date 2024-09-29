@@ -78,44 +78,20 @@
             @endforeach
           </div>
         </div>
-        <div class="sb-widget">
-          <h2 class="sb-title">Latest Comments</h2>
+        <div class="sb-widget main-comments">
+          <h2 class="sb-title main-comments__title">Latest Comments</h2>
           <div class="latest-comments-widget">
+            @foreach($latestComments as $comment)
             <div class="lc-item">
-              <img src="{{'img/author-thumbs/1.jpg'}}" alt="">
+              <img src="{{ asset('storage/' . (empty($comment->user->avatar) ? 'avatars/default-avatar.jpg': $comment->user->avatar)) }}" alt="User Avatar"
+                class="rounded-circle" width="40">
               <div class="lc-text">
-                <h6>Jane Smith<span> In </span><a href="">The best 2019 Games</a></h6>
-                <div class="lc-date">April 1,2019</div>
+                <h6>{{ $comment->user->name }}<span> In </span><a href="#">{{
+                    $comment->post->title }}</a></h6>
+                <div class="lc-date">{{ $comment->created_at->format('F j, Y') }}</div>
               </div>
             </div>
-            <div class="lc-item">
-              <img src="{{'img/author-thumbs/2.jpg'}}" alt="">
-              <div class="lc-text">
-                <h6>Michael James<span> In </span><a href="">The best 2019 Games</a></h6>
-                <div class="lc-date">April 1,2019</div>
-              </div>
-            </div>
-            <div class="lc-item">
-              <img src="{{'img/author-thumbs/3.jpg'}}" alt="">
-              <div class="lc-text">
-                <h6>Jane Smith<span> In </span><a href="">The best 2019 Games</a></h6>
-                <div class="lc-date">April 1,2019</div>
-              </div>
-            </div>
-            <div class="lc-item">
-              <img src="{{'img/author-thumbs/4.jpg'}}" alt="">
-              <div class="lc-text">
-                <h6>Michael James<span> In </span><a href="">The best 2019 Games</a></h6>
-                <div class="lc-date">April 1,2019</div>
-              </div>
-            </div>
-            <div class="lc-item">
-              <img src="{{'img/author-thumbs/1.jpg'}}" alt="">
-              <div class="lc-text">
-                <h6>Jane Smith<span> In </span><a href="">The best 2019 Games</a></h6>
-                <div class="lc-date">April 1,2019</div>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
       </div>

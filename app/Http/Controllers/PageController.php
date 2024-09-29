@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Post;
+use App\Models\Comment;
+use App\Models\Category;
 
 
 class PageController extends Controller
@@ -16,7 +17,10 @@ class PageController extends Controller
     $comments = $post->comments()->paginate(5);
     $categories = Category::withCount('posts')->get();
     $latestPosts = Post::latest()->take(4)->get();
-    // Передаем данные в представление
-    return view('page.show', compact('post', 'categories', 'latestPosts', 'comments'));
+    $latestComments = Comment::with('user', 'post')
+    ->orderBy('created_at', 'desc')
+    ->take(5)
+      ->get();
+    return view('page.show', compact('post', 'categories', 'latestPosts', 'comments', 'latestComments'));
   }
 }

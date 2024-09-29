@@ -27,8 +27,10 @@
               @if ($comments->isNotEmpty())
               @foreach ($comments as $comment)
               <div class="comments__coment">
-                
-                <img src="{{ asset('storage/' . (empty($comment->user->avatar) ? 'avatars/default-avatar.jpg' : $comment->user->avatar)) }}" alt="User Avatar" class="rounded-circle" width="40">
+
+                <img
+                  src="{{ asset('storage/' . (empty($comment->user->avatar) ? 'avatars/default-avatar.jpg' : $comment->user->avatar)) }}"
+                  alt="User Avatar" class="rounded-circle" width="40">
 
                 <span class="comments__name">{{ $comment->user->name }}</span>
                 <span class="comments__created">{{ $comment->created_at->diffForHumans() }}</span>
@@ -44,13 +46,13 @@
               </div>
               @endforeach
               @else
-                <li class="white">Комментов еще нет брат</li> 
+              <li class="white">Комментов еще нет брат</li>
               @endif
             </ul>
 
             <div class="pagination mb-4 justify-content-end">
-                {{ $comments->links() }}
-              </div>
+              {{ $comments->links() }}
+            </div>
 
             @if (Auth::check())
             <h5>Leave a comment</h5>
@@ -64,10 +66,10 @@
               </div>
             </form>
             @else
-            <p>Для того чтобы оставить комментарий, 
-              <a class="green-main" href="{{ route('login') }}">войдите</a> или 
+            <p>Для того чтобы оставить комментарий,
+              <a class="green-main" href="{{ route('login') }}">войдите</a> или
               <a class="green-main" href="{{ route('register') }}">зарегистрируйтесь</a>.
-              </p>
+            </p>
             @endif
           </div>
         </div>
@@ -89,7 +91,7 @@
           </ul>
           @if($categories->count() > 6)
           <div class="d-flex justify-content-center">
-            <a href="#" class="btn btn-dark mt-3">Показать все</a>
+            <a href="{{ route('category.index') }}" class="btn btn-dark mt-3">Показать все</a>
           </div>
           @endif
         </div>
@@ -112,44 +114,21 @@
             @endforeach
           </div>
         </div>
-        <div class="sb-widget">
-          <h2 class="sb-title">Latest Comments</h2>
+        <div class="sb-widget main-comments">
+          <h2 class="sb-title main-comments__title">Latest Comments</h2>
           <div class="latest-comments-widget">
+            @foreach($latestComments as $comment)
             <div class="lc-item">
-              <img src="{{ asset('img/author-thumbs/1.j') }}pg" alt="">
+              <img
+                src="{{ asset('storage/' . (empty($comment->user->avatar) ? 'avatars/default-avatar.jpg': $comment->user->avatar)) }}"
+                alt="User Avatar" class="rounded-circle" width="40">
               <div class="lc-text">
-                <h6>Jane Smith<span> In </span><a href="">The best 2019 Games</a></h6>
-                <div class="lc-date">April 1,2019</div>
+                <h6>{{ $comment->user->name }}<span> In </span><a href="#">{{
+                    $comment->post->title }}</a></h6>
+                <div class="lc-date">{{ $comment->created_at->format('F j, Y') }}</div>
               </div>
             </div>
-            <div class="lc-item">
-              <img src="{{ asset('img/author-thumbs/2.j') }}pg" alt="">
-              <div class="lc-text">
-                <h6>Michael James<span> In </span><a href="">The best 2019 Games</a></h6>
-                <div class="lc-date">April 1,2019</div>
-              </div>
-            </div>
-            <div class="lc-item">
-              <img src="{{ asset('img/author-thumbs/3.j') }}pg" alt="">
-              <div class="lc-text">
-                <h6>Jane Smith<span> In </span><a href="">The best 2019 Games</a></h6>
-                <div class="lc-date">April 1,2019</div>
-              </div>
-            </div>
-            <div class="lc-item">
-              <img src="{{ asset('img/author-thumbs/4.j') }}pg" alt="">
-              <div class="lc-text">
-                <h6>Michael James<span> In </span><a href="">The best 2019 Games</a></h6>
-                <div class="lc-date">April 1,2019</div>
-              </div>
-            </div>
-            <div class="lc-item">
-              <img src="{{ asset('img/author-thumbs/1.j') }}pg" alt="">
-              <div class="lc-text">
-                <h6>Jane Smith<span> In </span><a href="">The best 2019 Games</a></h6>
-                <div class="lc-date">April 1,2019</div>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
       </div>
@@ -163,5 +142,3 @@
 
 
 @endsection
-
-

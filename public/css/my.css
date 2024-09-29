@@ -65,6 +65,9 @@
 .mb-100 {
   margin-bottom: 100px;
 }
+.latest-comments-widget .lc-item {
+  margin-bottom: 37px;
+}
 /* ////////////////////////////////////////////////////// */
 /* пагинация */
 .page-link.active, .page-item.active {
@@ -86,3 +89,8 @@
 .category__title {
   font-size: 23px;
 }
+/* //////////////////////////////////////////////////// */
+/* коменты на главной */
+/* .main-comments__title {
+  margin-bottom: 30px !important;
+} */
