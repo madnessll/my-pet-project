@@ -68,6 +68,12 @@
 .latest-comments-widget .lc-item {
   margin-bottom: 37px;
 }
+.mb-220 {
+  margin-bottom: 220px;
+}
+.fs30 {
+  font-size: 30px;
+}
 /* ////////////////////////////////////////////////////// */
 /* пагинация */
 .page-link.active, .page-item.active {
@@ -97,4 +103,15 @@
  .navbar-nav .nav-item .nav-link {
   display: flex;
   align-items: center;
+ }
+
+ .search__row {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center
+
+
+ }
+ .search__col {
+  flex: 0 0 auto;
  }

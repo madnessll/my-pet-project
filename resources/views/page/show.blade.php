@@ -76,11 +76,6 @@
       </div>
       <div class="col-lg-4 sidebar">
         <div class="sb-widget">
-          <form class="sb-search">
-            <input type="text" placeholder="Search">
-          </form>
-        </div>
-        <div class="sb-widget">
           <h2 class="sb-title">Categories</h2>
           <ul class="sb-cata-list">
             @foreach($categories->take(6) as $category)

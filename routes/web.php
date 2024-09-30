@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
@@ -16,6 +17,8 @@ use App\Http\Controllers\Admin\CategoryController;
 Route::get('/', [MainController::class, 'index'])->name('main.index');
 
 Route::get('/categories',[App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
+
+Route::get('/search', [SearchController::class, 'index'])->name('search.index');
 
 
 Route::get('/page/{id}', [PageController::class, 'show'])->name('page.show');

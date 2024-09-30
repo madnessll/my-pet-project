@@ -40,8 +40,8 @@
       </div>
       <div class="col-lg-4 sidebar">
         <div class="sb-widget">
-          <form class="sb-search">
-            <input type="text" placeholder="Search">
+          <form class="sb-search" action="{{ route('search.index') }}" method="GET">
+            <input type="text" name="query" placeholder="Search" required>
           </form>
         </div>
         <div class="sb-widget">
