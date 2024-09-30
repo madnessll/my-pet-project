@@ -27,7 +27,6 @@ class CommentController extends Controller
   {
     $comment = Comment::findOrFail($id);
 
-    // Проверка на то, что пользователь - администратор или автор комментария
     if (Auth::user()->is_admin || Auth::id() === $comment->user_id) {
       $comment->delete();
       return redirect()->back();

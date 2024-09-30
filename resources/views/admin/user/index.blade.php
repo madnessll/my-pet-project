@@ -44,7 +44,7 @@
                     Админ
                     @endif
                   </td>
-                  {{-- <td class="text-center"><a href="{{ route('admin.post.edit', $post->id) }}"><i class="fas fa-pencil-alt text-success"></i></a></td> --}}
+
                   <td class="text-center"><a href="{{ route('admin.user.edit', $user->id) }}"><i class="fas fa-pencil-alt text-success"></i></a></td>
                 </tr>
                 @endforeach

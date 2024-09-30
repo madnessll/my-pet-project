@@ -158,7 +158,6 @@
 
   <script>
     $(function () {
-    // Проверяем, определена ли функция bsCustomFileInput и если она доступна
     if (typeof bsCustomFileInput !== 'undefined') {
     bsCustomFileInput.init();
     }

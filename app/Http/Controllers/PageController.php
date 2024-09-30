@@ -12,7 +12,6 @@ class PageController extends Controller
 
   public function show($id)
   {
-    // Поиск поста по ID
     $post = Post::findOrFail($id);
     $comments = $post->comments()->paginate(5);
     $categories = Category::withCount('posts')->get();
